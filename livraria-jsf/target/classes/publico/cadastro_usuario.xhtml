@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</h:head>
+<h:body>
+	<h:form class="form-inline">
+		<p:growl id="messages" showDetail="false" autoUpdate="true"
+			closable="true" />
+		<center>
+
+			<div class="page-header">
+				<h2>Cadastre o Usuário</h2>
+			</div>
+
+			<div class="form-group">
+				<h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="5">
+
+					<br />
+					<br />
+					<p:selectOneRadio id="usuario"
+						value="#{usuarioBean.usuario.tipoDeUsuario}">
+						<f:selectItem itemLabel="Cliente" itemValue="Cliente" />
+						<f:selectItem itemLabel="Funcionário" itemValue="Funcionario" />
+						<f:selectItem itemLabel="Administrador" itemValue="Administrador" />
+					</p:selectOneRadio>
+				</h:panelGrid>
+			</div>
+			<br />
+			<div class="jumbotron">
+				<div class="form-group">
+					<label>Escolha o Email</label>
+					<h:inputText value="#{usuarioBean.usuario.email}" required="true"
+						requiredMessage="Preencha o email" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label>Escolha uma Senha</label>
+					<h:inputSecret value="#{usuarioBean.usuario.senha}" required="true"
+						requiredMessage="Preencha a senha" class="form-control" />
+				</div>
+				<h:commandButton class="btn btn-primary" value="ENVIAR"
+					action="#{usuarioBean.cadastrar}" />
+			</div>
+			<label> <a href="http://localhost:8080/livraria-jsf/">Fazer
+					Login</a>
+			</label>
+		</center>
+	</h:form>
+</h:body>
+</html>
